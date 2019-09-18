@@ -36,6 +36,7 @@ function CharacterStats(stats) {
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function(){
   return `${this.name} took damage.`;
 }
@@ -55,6 +56,7 @@ function Humanoid(attributes){
   this.language = attributes.language
 }
 Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 Humanoid.prototype.greet = function(){
   return `${this.name} offers a greeting in ${this.language}.`;
 }
@@ -146,10 +148,16 @@ Humanoid.prototype.greet = function(){
     this.language = atts.language
   }
   Villain.prototype = Object.create(CharacterStats.prototype);
+
+  Villain.prototype.spellDamage = function(){
+    return `${this.name} does damage for 8hp.`;
+  }
+  
   Villain.prototype.greet = function(){
     return `${this.name} offers a greeting in ${this.language}.`;
   }
-  
+
+
   function Hero(atts1){
     CharacterStats.call(this, atts1);
     this.team = atts1.team,
@@ -157,9 +165,15 @@ Humanoid.prototype.greet = function(){
     this.language = atts1.language
   }
   Hero.prototype = Object.create(CharacterStats.prototype);
+
+  Hero.prototype.heal = function(){
+    return `${this.name} got healed for 5hp. ${healthPoints}`;
+  }
+
   Hero.prototype.greet = function(){
     return `${this.name} offers a greeting in ${this.language}.`;
   }
+  
   
   
 
@@ -178,6 +192,7 @@ Humanoid.prototype.greet = function(){
       'Fire',
     ],
     language: 'Hellish',
+    spellDamage: 8
   });
 
   const paladin = new Hero({
@@ -195,7 +210,13 @@ Humanoid.prototype.greet = function(){
       'Shield of Light',
     ],
     language: 'Pallish',
+    heal: 5
   });
 
 
-  paladin.greet('HI');
+
+
+
+console.log (paladin.heal());
+
+console.log (warlock.spellDamage());
