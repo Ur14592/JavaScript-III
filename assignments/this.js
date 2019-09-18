@@ -13,54 +13,54 @@
 
 // code example for Window Binding
 
-function myName (name) {
-    console.log(this);
-    return name;
-}
-myName("Jose");
+// function myName (name) {
+//     console.log(this);
+//     return name;
+// }
+// myName("Jose");
 
 // Principle 2
 
 // code example for Implicit Binding
 
-const myCat = {
-    sound: 'meow',
-    catSpeaks: function (name) {
-        console.log( `My name is ${name} and i go ${this.sound}!`);
-    }
-};
-myCat.catSpeaks('Milo');
+// const myCat = {
+//     sound: 'meow',
+//     catSpeaks: function (name) {
+//         console.log( `My name is ${name} and i go ${this.sound}!`);
+//     }
+// };
+// myCat.catSpeaks('Milo');
 
 // Principle 3
 
 // code example for New Binding
 
-function animal(greeter) {
-    this.greeting = 'I go  ';
-    this.greeter = greeter;
-    this.speak = function () {
-        console.log(this.greeting + this.greeter);
-        console.log(this);
-    };
-}
+// function animal(greeter) {
+//     this.greeting = 'I go  ';
+//     this.greeter = greeter;
+//     this.speak = function () {
+//         console.log(this.greeting + this.greeter);
+//         console.log(this);
+//     };
+// }
 
-const dog = new animal('Woof Woof!');
-const cat = new animal('Meow Meow!');
+// const dog = new animal('Woof Woof!');
+// const cat = new animal('Meow Meow!');
 
-dog.speak();
-cat.speak();
+// dog.speak();
+// cat.speak();
 
 // Principle 4
 
 // code example for Explicit Binding
 
-function cat() {
-    console.log(this.sound);
-}
+// function cat() {
+//     console.log(this.sound);
+// }
 
-let myCat = {
-    name:'Milo',
-    sound: 'Meow Meow'
-}
+// let myCat = {
+//     name:'Milo',
+//     sound: 'Meow Meow'
+// }
 
-cat.call(myCat);
+// cat.call(myCat);
